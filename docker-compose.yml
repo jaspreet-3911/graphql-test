@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  pg_db:
+    image: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - PG_TRUST_LOCALNET=true
+      - POSTGRES_PASSWORD=password
+    ports:
+      - "5432:5432"
+volumes:
+  db-data:
